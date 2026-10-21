@@ -39,8 +39,6 @@ class _OnlineFriendsViewState extends State<OnlineFriendsView> {
     super.dispose();
   }
 
-  /// Navigate to [HandleEntryView] to let the user change their handle.
-  /// On return, replace this screen with a fresh [OnlineFriendsView].
   void _changeHandle() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute<void>(

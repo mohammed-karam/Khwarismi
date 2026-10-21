@@ -140,7 +140,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
           children: [
-            // Problem Rating & Estimation Card
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -264,7 +263,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
             ),
             const SizedBox(height: 24),
 
-            // Circular Timer Display
             Container(
               padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 20),
               decoration: BoxDecoration(
@@ -281,7 +279,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
               ),
               child: Column(
                 children: [
-                  // Progress Ring
                   Stack(
                     alignment: Alignment.center,
                     children: [
@@ -351,7 +348,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
                   ),
                   const SizedBox(height: 24),
 
-                  // Quick Presets
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
@@ -400,10 +396,8 @@ class _TimerViewBodyState extends State<TimerViewBody> {
                   ),
                   const SizedBox(height: 24),
 
-                  // Control Buttons (Start / Pause / Reset)
                   Row(
                     children: [
-                      // Reset Button
                       Expanded(
                         flex: 1,
                         child: OutlinedButton.icon(
@@ -423,7 +417,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      // Play / Pause Button
                       Expanded(
                         flex: 2,
                         child: ElevatedButton.icon(
@@ -461,7 +454,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      // +5 min Button
                       Expanded(
                         flex: 1,
                         child: OutlinedButton(
@@ -489,7 +481,6 @@ class _TimerViewBodyState extends State<TimerViewBody> {
             ),
             const SizedBox(height: 20),
 
-            // Help info footer
             Container(
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(

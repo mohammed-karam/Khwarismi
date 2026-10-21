@@ -7,8 +7,6 @@ import 'package:codeforcers/features/online_friends/views/online_friends_view.da
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Shown when the user has not yet provided their Codeforces handle.
-/// After saving it, the user is taken to [OnlineFriendsView].
 class HandleEntryView extends StatefulWidget {
   const HandleEntryView({super.key});
 
@@ -25,7 +23,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
   @override
   void initState() {
     super.initState();
-    // Pre-fill if a handle was saved before
     final saved = AppSettings.instance.codeforcesHandle;
     if (saved.isNotEmpty) _controller.text = saved;
   }
@@ -70,7 +67,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
-          // ── Gradient header ──────────────────────────────────────────────
           SliverAppBar(
             expandedHeight: 200,
             pinned: true,
@@ -94,7 +90,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
                   ),
                   child: Stack(
                     children: [
-                      // Decorative circles
                       Positioned(
                         top: -30,
                         right: -30,
@@ -111,7 +106,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
                           color: Colors.white.withValues(alpha: 0.04),
                         ),
                       ),
-                      // Icon + label
                       const Align(
                         alignment: Alignment.bottomCenter,
                         child: Padding(
@@ -150,12 +144,10 @@ class _HandleEntryViewState extends State<HandleEntryView> {
             ),
           ),
 
-          // ── Body ─────────────────────────────────────────────────────────
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(24, 36, 24, 40),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                // Instruction card
                 _InfoCard(
                   icon: Icons.info_outline_rounded,
                   text:
@@ -164,7 +156,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
                 ),
                 const SizedBox(height: 28),
 
-                // Label
                 const Text(
                   'Your Codeforces handle',
                   style: TextStyle(
@@ -176,7 +167,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
                 ),
                 const SizedBox(height: 10),
 
-                // Text field
                 _HandleTextField(
                   controller: _controller,
                   focus: _focus,
@@ -190,7 +180,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
                 ),
                 const SizedBox(height: 28),
 
-                // Submit button
                 _SubmitButton(
                   isLoading: _isLoading,
                   onPressed: _submit,
@@ -204,7 +193,6 @@ class _HandleEntryViewState extends State<HandleEntryView> {
   }
 }
 
-// ─── Header icon ─────────────────────────────────────────────────────────────
 
 class _HeaderIcon extends StatelessWidget {
   const _HeaderIcon();
@@ -231,7 +219,6 @@ class _HeaderIcon extends StatelessWidget {
   }
 }
 
-// ─── Info card ────────────────────────────────────────────────────────────────
 
 class _InfoCard extends StatelessWidget {
   const _InfoCard({required this.icon, required this.text});
@@ -271,7 +258,6 @@ class _InfoCard extends StatelessWidget {
   }
 }
 
-// ─── Handle text field ────────────────────────────────────────────────────────
 
 class _HandleTextField extends StatelessWidget {
   const _HandleTextField({
@@ -351,7 +337,6 @@ class _HandleTextField extends StatelessWidget {
   }
 }
 
-// ─── Submit button ────────────────────────────────────────────────────────────
 
 class _SubmitButton extends StatelessWidget {
   const _SubmitButton({required this.isLoading, required this.onPressed});
@@ -418,7 +403,6 @@ class _SubmitButton extends StatelessWidget {
   }
 }
 
-// ─── Decorative circle ────────────────────────────────────────────────────────
 
 class _Circle extends StatelessWidget {
   const _Circle({required this.size, required this.color});

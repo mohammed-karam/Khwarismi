@@ -1,7 +1,6 @@
 import 'package:codeforcers/core/storage/app_settings.dart';
 import 'package:codeforcers/core/storage/solved_store.dart';
 import 'package:codeforcers/core/theme/app_colors.dart';
-import 'package:codeforcers/features/shell/views/main_shell_view.dart';
 import 'package:codeforcers/features/splash/views/splash_view.dart';
 import 'package:codeforcers/features/submit/data/cf_verdict_store.dart';
 import 'package:codeforcers/features/timer/manager/timer_controller.dart';

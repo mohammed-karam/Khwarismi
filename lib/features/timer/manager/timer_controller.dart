@@ -15,7 +15,7 @@ class TimerController extends ChangeNotifier {
   static const String _prefHint30Shown = 'timer.hint_30_shown';
   static const String _prefHint60Shown = 'timer.hint_60_shown';
 
-  int _totalSeconds = 25 * 60; // Default 25 minutes
+  int _totalSeconds = 25 * 60;
   int _remainingSeconds = 25 * 60;
   bool _isRunning = false;
   int _problemRating = 1200;
@@ -26,7 +26,6 @@ class TimerController extends ChangeNotifier {
   DateTime? _targetEndTime;
   bool _initialized = false;
 
-  // Stream/Callbacks for hint dialogs
   int? _pendingHintMinute;
 
   int get totalSeconds => _totalSeconds;
@@ -169,7 +168,6 @@ class TimerController extends ChangeNotifier {
         }
       }
 
-      // Check hint checkpoints (elapsed time = total - remaining)
       final elapsed = _totalSeconds - _remainingSeconds;
       if (elapsed >= 30 * 60 && !_hint30Shown) {
         _hint30Shown = true;

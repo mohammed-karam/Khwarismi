@@ -27,7 +27,6 @@ class _SplashViewState extends State<SplashView>
       duration: const Duration(milliseconds: 2200),
     );
 
-    // Logo pops in (0 → 550 ms)
     _logoScale = Tween<double>(begin: 0.4, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -41,7 +40,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Text slides up (550 → 1100 ms)
     _textOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -58,7 +56,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Dots fade in (1100 → 1500 ms)
     _dotsOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -66,7 +63,6 @@ class _SplashViewState extends State<SplashView>
       ),
     );
 
-    // Navigate at the end — no fade-to-black; route transition handles it
     _controller.forward().then((_) => _navigateToHome());
   }
 
@@ -112,7 +108,6 @@ class _SplashViewState extends State<SplashView>
             ),
             child: Stack(
               children: [
-                // Decorative circles
                 Positioned(
                   top: -80,
                   right: -60,
@@ -138,12 +133,10 @@ class _SplashViewState extends State<SplashView>
                   ),
                 ),
 
-                // Center content
                 Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Logo mark — stylised angle brackets
                       Opacity(
                         opacity: _logoOpacity.value,
                         child: Transform.scale(
@@ -183,7 +176,6 @@ class _SplashViewState extends State<SplashView>
 
                       const SizedBox(height: 28),
 
-                      // App name + tagline
                       SlideTransition(
                         position: _textSlide,
                         child: Opacity(
@@ -217,7 +209,6 @@ class _SplashViewState extends State<SplashView>
                   ),
                 ),
 
-                // Bottom loading dots
                 Positioned(
                   bottom: 60,
                   left: 0,
@@ -236,7 +227,6 @@ class _SplashViewState extends State<SplashView>
   }
 }
 
-// ─── Decorative circle ────────────────────────────────────────────────────────
 
 class _Circle extends StatelessWidget {
   const _Circle({required this.size, required this.color});
@@ -253,7 +243,6 @@ class _Circle extends StatelessWidget {
   }
 }
 
-// ─── Pulsing dots ─────────────────────────────────────────────────────────────
 
 class _PulsingDots extends StatefulWidget {
   const _PulsingDots();
