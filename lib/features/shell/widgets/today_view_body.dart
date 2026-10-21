@@ -1,7 +1,9 @@
+import 'package:codeforcers/core/storage/app_settings.dart';
 import 'package:codeforcers/core/theme/app_colors.dart';
 import 'package:codeforcers/core/widgets/scale_tap.dart';
 import 'package:codeforcers/features/ai_tutor/views/ai_tutor_view.dart';
 import 'package:codeforcers/features/code_compiler/views/code_compiler_view.dart';
+import 'package:codeforcers/features/online_friends/views/handle_entry_view.dart';
 import 'package:codeforcers/features/online_friends/views/online_friends_view.dart';
 import 'package:codeforcers/features/timer/views/timer_view.dart';
 import 'package:flutter/material.dart';
@@ -60,22 +62,22 @@ class TodayViewBody extends StatelessWidget {
               crossAxisSpacing: 12,
                                           mainAxisExtent: 142,
             ),
-            children: const [
-              _ActionTile(
+            children: [
+              const _ActionTile(
                 icon: Icons.auto_awesome_rounded,
                 tint: AppColors.navy,
                 title: 'Ask the AI',
                 subtitle: 'Correct your answer in 3 trials',
                 destination: AiTutorView(),
               ),
-              _ActionTile(
+              const _ActionTile(
                 icon: Icons.timer_outlined,
                 tint: AppColors.accentBlue,
                 title: 'Timed practice',
                 subtitle: 'Solve against your expected time',
                 destination: TimerView(),
               ),
-              _ActionTile(
+              const _ActionTile(
                 icon: Icons.code_rounded,
                 tint: Color(0xFF4338CA),
                 title: 'Run your code',
@@ -84,10 +86,12 @@ class TodayViewBody extends StatelessWidget {
               ),
               _ActionTile(
                 icon: Icons.people_outline_rounded,
-                tint: Color(0xFF0E7490),
+                tint: const Color(0xFF0E7490),
                 title: 'Online friends',
                 subtitle: 'See who is practising now',
-                destination: OnlineFriendsView(),
+                destination: AppSettings.instance.hasCodeforcesHandle
+                    ? const OnlineFriendsView()
+                    : const HandleEntryView(),
               ),
             ],
           ),

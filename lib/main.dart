@@ -2,6 +2,7 @@ import 'package:codeforcers/core/storage/app_settings.dart';
 import 'package:codeforcers/core/storage/solved_store.dart';
 import 'package:codeforcers/core/theme/app_colors.dart';
 import 'package:codeforcers/features/shell/views/main_shell_view.dart';
+import 'package:codeforcers/features/splash/views/splash_view.dart';
 import 'package:codeforcers/features/submit/data/cf_verdict_store.dart';
 import 'package:codeforcers/features/timer/manager/timer_controller.dart';
 import 'package:codeforcers/firebase_options.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Codeforces Helper',
+      title: 'Khwarizmi',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.navy),
         scaffoldBackgroundColor: AppColors.background,
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainShellView(),
+      home: const SplashView(),
     );
   }
 }
